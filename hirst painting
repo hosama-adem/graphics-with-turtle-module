@@ -1,0 +1,36 @@
+import turtle as t
+import random
+
+# Set up screen and color mode
+t.colormode(255)
+screen = t.Screen()
+
+# Define color list (usually extracted by colorgram)
+color_list = [(229, 228, 226), (225, 223, 224), (124, 36, 24),
+              (210, 221, 213), (168, 106, 57), (222, 224, 227),
+              (186, 158, 53)]
+
+# Create turtle
+tim = t.Turtle()
+tim.penup()
+tim.hideturtle()
+tim.speed("fastest")
+
+# Starting position
+tim.setheading(225)
+tim.forward(300)
+tim.setheading(0)
+
+# Draw 150 dots (15 rows x 10 columns)
+for dot_count in range(1, 151):
+    tim.dot(20, random.choice(color_list))
+    tim.forward(50)
+
+    if dot_count % 10 == 0:  # Go to next row
+        tim.setheading(90)
+        tim.forward(50)
+        tim.setheading(180)
+        tim.forward(500)
+        tim.setheading(0)
+
+screen.exitonclick()
